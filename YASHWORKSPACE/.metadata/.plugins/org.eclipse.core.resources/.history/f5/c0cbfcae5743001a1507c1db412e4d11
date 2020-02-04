@@ -1,0 +1,186 @@
+package com.yash.arci.service;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Set;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.yash.arci.dto.SearchResponseDto;
+import com.yash.arci.dto.UserProfileResponseDto;
+import com.yash.arci.exception.UserNotActiveException;
+import com.yash.arci.exception.UserNotFoundException;
+import com.yash.arci.model.AccessToken;
+import com.yash.arci.model.RequestStatus;
+import com.yash.arci.model.Role;
+import com.yash.arci.model.User;
+import com.yash.arci.repository.AccessTokenRepository;
+import com.yash.arci.repository.UserRepository;
+
+@Service
+@Transactional
+public class UserServiceImpl implements IUserService {
+
+	@Autowired
+	UserRepository userRepository;
+	@Autowired
+	private AccessTokenRepository accessTokenRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+	@Override
+	public User findUserByEmail(String email) {
+		return userRepository.findByEmail(email);
+
+	}
+
+	@Override
+	public boolean checkIfValidOldPassword(final User user, final String oldPassword) {
+		return passwordEncoder.matches(oldPassword, user.getPassword());
+	}
+
+	@Override
+	public void changeUserPassword(final User user, final String password) {
+		user.setPassword(passwordEncoder.encode(password));
+		userRepository.save(user);
+	}
+
+	@Override
+	public AccessToken getToken(final String token) {
+		return accessTokenRepository.findByToken(token);
+	}
+
+	@Override
+	public User findByUsernameOrEmail(String nameOrEmail) {
+		User user = userRepository.findByUsernameOrEmail(nameOrEmail, nameOrEmail).orElseThrow(
+				() -> new UsernameNotFoundException("User not found with username or email : " + nameOrEmail));
+		return user;
+
+	}
+
+	@Override
+	public List<SearchResponseDto> searchUser(String searchText) {
+		List<SearchResponseDto> listUserResponse = new ArrayList<>();
+		SearchResponseDto userResponseDto = new SearchResponseDto();
+		List<User> listSearchUser = userRepository.searchUser(searchText);
+		if (listSearchUser.isEmpty()) {
+			return null;
+		}
+		
+		for (User user : listSearchUser) {
+			Set<Role> roles = user.getRoles();
+			for (Role role : roles) {
+				if(role.getName().toString().equals("ROLE_ASSOCIATE")) {
+					userResponseDto.setUserId(user.getUserId());
+					userResponseDto.setFirstName(user.getFirstName());
+					userResponseDto.setLastName(user.getLastName());
+					userResponseDto.setEmail(user.getEmail());
+					listUserResponse.add(userResponseDto);
+				}
+			}
+			}
+		return listUserResponse;
+	}
+
+	@Transactional
+	@Override
+	public void initiateResetPassword(User user, String resetCode) {
+		AccessToken accessToken = accessTokenRepository.findByUser(user);
+		if(!(accessToken == null)){
+		if(accessToken.getRequestStatus().equals(RequestStatus.Created) ||
+				  accessToken.getRequestStatus().equals(RequestStatus.Consumed)){
+			accessTokenRepository.delete(accessToken);
+		}
+		}
+			// No previous pRToken exists insert a new one.
+		    AccessToken myToken = new AccessToken(resetCode, user);
+			myToken.setRequestStatus(RequestStatus.Created);
+			accessTokenRepository.save(myToken);
+		}
+	
+	@Override
+	public String validatePasswordResetToken(long id, String token) {
+		final AccessToken passToken = accessTokenRepository.findByToken(token);
+		if ((passToken == null) || (passToken.getUser().getUserId() != id)) {
+			return "invalidToken";
+		}
+
+		final Calendar cal = Calendar.getInstance();
+		if ((passToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
+			return "expired";
+		}
+
+		final User user = passToken.getUser();
+		final Authentication auth = new UsernamePasswordAuthenticationToken(user, null,
+				Arrays.asList(new SimpleGrantedAuthority("CHANGE_PASSWORD_PRIVILEGE")));
+		SecurityContextHolder.getContext().setAuthentication(auth);
+		return null;
+	}
+
+	@Override
+	public User findUserById(long id) {
+		User user = userRepository.getOne(id);
+		return user;
+	}
+
+	@Override
+	public UserProfileResponseDto findUserProfile() {
+		UserProfileResponseDto userProfileResponse = new UserProfileResponseDto();
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		User user = userRepository.findByUsername(auth.getName())
+				.orElseThrow(() -> new UsernameNotFoundException("User not found with username : " + auth.getName()));
+
+		if (user == null) {
+			throw new UserNotFoundException("User doesn't exist");
+		}
+		if (user.getActive() == null) {
+			throw new UserNotActiveException("User Not Active");
+		}
+		userProfileResponse.setUserId(user.getUserId());
+		userProfileResponse.setEmployeeId(user.getEmployeeId());
+		userProfileResponse.setUsername(user.getUsername());
+		userProfileResponse.setFirstName(user.getFirstName());
+		userProfileResponse.setLastName(user.getLastName());
+		userProfileResponse.setEmail(user.getEmail());
+		userProfileResponse.setSkill(user.getSkills());
+
+		return userProfileResponse;
+	}
+
+	public void saveUserAccessToken(AccessToken accessToken) {
+
+		accessTokenRepository.save(accessToken);
+	}
+
+	
+
+	@Override
+	public void updateUser(UpdateUserProfileDto updateUserProfile) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		User user = userRepository.findByUsername(auth.getName())
+				.orElseThrow(() -> new UsernameNotFoundException("User not found with username : " + auth.getName()));
+
+		long userId=user.getUserId();
+		
+		try {
+			userRepository.updateUser(updateUserProfile.getSkillId(),userId);
+		}
+		catch (Exception e) {
+			throw new UserNotUpdated("User Not Updated Beacause some problem");
+		}
+	}
+}

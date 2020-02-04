@@ -1,0 +1,5 @@
+package com.yash.pta.web;
+
+public class TrainerController {
+
+}

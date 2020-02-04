@@ -1,0 +1,44 @@
+package collection;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrentHashMapDemo {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, String> chm = new ConcurrentHashMap<>();
+		
+		chm.put(1, "A");
+		chm.put(2, "C");
+		chm.put(3, "B");
+		chm.put(4, "D");
+		chm.put(5, "E");
+		chm.put(6, "F");	
+		
+		System.out.println(chm);
+		
+		System.out.println(chm.put(1, "Z"));
+		
+		System.out.println(chm.get(1));
+		System.out.println(chm);
+		
+		Iterator<Integer> keyIterator=chm.keySet().iterator();
+		while(keyIterator.hasNext()){
+		  System.out.println(keyIterator.next());
+		} 
+		
+		//FAIL-SAFE
+		//NO cocurrent modification exception durring iteration we can modifiy/ add/remove concurrent hash map
+		Iterator<Integer> iterator=chm.keySet().iterator();
+		while(iterator.hasNext()){
+		  System.out.println(iterator.next());
+		  chm.put(4, "d");
+		}
+
+		        
+
+	}
+
+}

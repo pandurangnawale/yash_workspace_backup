@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=D\:\\restApi\\FoodDelivery\\.git;D\:\\FoodDeliveryWorkSpace\\pms\\.git;D\:\\FoodDeliveryWorkSpace\\employeemanagement\\.git;D\:\\FoodDeliveryWorkSpace\\javaTraining_OLD\\.git;
+GitRepositoriesView.GitDirectories.relative=D\:\\restApi\\FoodDelivery\\.git;pms\\.git;employeemanagement\\.git;javaTraining_OLD\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1

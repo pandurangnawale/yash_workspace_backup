@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Issue Tracker- App</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    
+</head>
+<body>
+   <table border="1">
+        <tr>
+            <td height="25px">
+                <h1 class="appTitle">Issue-Tracker-App using [Vanilla Js + HTML + CSS]</h1>
+            </td>
+        </tr>
+        <tr>
+            
+            <td height="400px" valign="top">
+                <div class="container">
+                <!--<div>
+                    <button type="button" class="btn btn-success" id='displyIssue' onclick="handlers.displayIssues()">Display Issue</button>
+                    <button type="button" class="btn btn-success" id='toggleAll' onclick="handlers.toggleAll()">Toggle All</button>
+                </div>-->
+                <br>
+                <div>
+                    <input type="text" class="form-control" placeholder="Enter issue" id="addIssueText" style="width: 315px;">
+                    <br>
+                    <button id="AddIssue" class="btn btn-warning" onclick="handlers.addIssue()">Add</button>
+                </div>
+                <br>
+                <div>
+                    <input type="number" class="form-control" placeholder="Enter Position" id="changeIssueUsingPos" style="width: 315px;">
+                    <br>
+                    <input type="text" class="form-control" placeholder="Enter issue" id="changeIssueText" style="width: 315px;">
+                    <br>
+                    <button class="btn btn-info" onclick="handlers.changeIssue()">Change Issue</button>
+                </div>
+                <br>
+                <!--<div>
+                    <input type="number" class="form-control" placeholder="Enter Position" id="deleteIssueText" style="width: 315px;">
+                    <br>
+                    <button class="btn btn-danger" onclick="handlers.deleteIssue()">Delete</button>
+                </div>-->
+                <br>
+                <div>
+                    <input type="number" class="form-control" placeholder="Enter Position" id="toggleIssueText" style="width: 315px;">
+                    <br>
+                    <button class="btn btn-primary" onclick="handlers.toggleIssue()">Toggle</button>
+                </div>
+
+
+                <div id="sideInstruction">
+                   <p>Hover on Issue or [X] button to get the help</p>
+                   <p>Click on Issue or [X] button to change status or delete Issue</p>
+                    
+                </div>
+                <br/>    
+                </div>
+                <hr/>
+                <ul>
+                <!--Issue List -->
+                </ul>
+                
+            </td>
+            
+        </tr>
+        <tr>
+            <td height="20px">&reg; Developed by :  Pandurang Nawale</td>
+        </tr>
+    </table>    
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</body>
+</html>

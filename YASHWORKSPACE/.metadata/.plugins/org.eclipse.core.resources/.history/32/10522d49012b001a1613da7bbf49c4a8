@@ -1,0 +1,53 @@
+package expert;
+class Node
+{
+	int data;
+	Node next;
+	Node(int data)
+	{
+		this.data=data;
+		next=null;
+	}
+}
+public class LList {
+	static Node head;
+	public void show()
+	{
+		Node curr=head;
+		while(curr!=null)
+		{
+			System.out.println(curr.data);
+			curr=curr.next;
+		}
+	}
+	public Node findMiddleNode()
+	{
+		Node slowPtr;
+		Node fastPtr;
+		slowPtr=fastPtr=head;
+		while(fastPtr!=null && fastPtr.next!=null)
+		{
+			slowPtr=slowPtr.next;
+			fastPtr=fastPtr.next.next;
+		}
+		return slowPtr;
+				
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 head=new Node(10);
+		Node first=new Node(77);
+		Node second=new Node(41);
+		Node third=new Node(89);
+		Node fourth=new Node(70);
+		head.next=first;
+		first.next=second;
+		second.next=third;
+		third.next=fourth;
+		LList l=new LList();
+		l.show();
+		Node s=l.findMiddleNode();
+		System.out.println("Answer is  : "+s.data);
+	}
+
+}

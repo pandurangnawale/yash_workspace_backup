@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;AppTest.java&apos; to &apos;employeemanagement/test&apos;&#x0D;&#x0A;- Original project: &apos;tdddemo&apos;&#x0D;&#x0A;- Destination element: &apos;employeemanagement/test&apos;&#x0D;&#x0A;- Original element: &apos;com.yash.tdddemo.AppTest.java&apos;" description="Copy compilation unit" destination="=employeemanagement/test" element1="/src\/test\/java&lt;com.yash.tdddemo{AppTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1572934714821" units="1" version="1.0"/>
+</session>

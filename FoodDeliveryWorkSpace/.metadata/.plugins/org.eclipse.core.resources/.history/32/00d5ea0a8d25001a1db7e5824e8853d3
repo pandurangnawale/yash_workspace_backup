@@ -1,0 +1,48 @@
+package com.yash.pta.controller;
+
+import java.util.List;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.yash.pta.exception.EmptyTechListException;
+import com.yash.pta.exception.InvalidCredentialsException;
+import com.yash.pta.model.Login;
+import com.yash.pta.model.Technology;
+import com.yash.pta.model.User;
+import com.yash.pta.service.TechnologyService;
+import com.yash.pta.util.UseConstants;
+
+@RestController
+@CrossOrigin(origins = "*")
+public class TechnologyController {
+
+	@Autowired
+	private TechnologyService technologyService;
+
+//	private final Logger LOGGER = LoggerFactory.getLogger(TechnologyController.class.getName()); 
+
+	@GetMapping("api/pta/techlist")
+	public ResponseEntity<?> getTechList() {
+
+		List<Technology> techList = technologyService.getTechnoloyList();
+
+
+		if (!techList.isEmpty()) 
+			return new ResponseEntity<>(techList, HttpStatus.OK);
+		else 
+			throw new EmptyTechListException(UseConstants.EMPTY_TECHNOLOGY_LIST);
+		
+
+	}
+
+}

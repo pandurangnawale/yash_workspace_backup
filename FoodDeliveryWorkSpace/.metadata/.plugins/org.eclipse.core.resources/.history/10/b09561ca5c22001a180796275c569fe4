@@ -1,0 +1,5 @@
+package com.yash.pta.serviceApi;
+
+public interface TrainerServiceApi {
+
+}

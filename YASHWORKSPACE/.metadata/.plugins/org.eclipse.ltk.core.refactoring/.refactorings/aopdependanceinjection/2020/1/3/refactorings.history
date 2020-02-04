@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.aop.com.Allian&apos; to &apos;Alian&apos;&#x0D;&#x0A;- Original project: &apos;aopdependanceinjection&apos;&#x0D;&#x0A;- Original element: &apos;com.aop.com.Allian&apos;&#x0D;&#x0A;- Renamed element: &apos;com.aop.com.Alian&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Allian&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.aop.com{Allian.java[Allian" matchStrategy="1" name="Alian" qualified="false" references="true" similarDeclarations="false" stamp="1578985267919" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,27 @@
+
+<table  class="table table-striped" >
+<tr>
+  <th>Description</th>
+  <th>Target</th>
+  <th>Status</th>
+</tr>
+<!-- <tr>
+  <td>{{todo.id}}</td>
+  <td>{{todo.name}}</td>
+</tr> -->
+
+<!-- <tr *ngFor="let todo of todos">  let is local scope like private. todo is var of todos 
+    <td>{{todo.id}}</td>
+    <td>{{todo.name}}</td>
+  </tr> -->
+
+
+  <tr *ngFor="let todo of todos">  <!--let is local scope like private. todo is var of todos  -->
+      <td>{{todo.description}}</td>
+      <td>{{todo.targetDate| date: 'dd-MMM-yyyy'}}</td>
+      <td>{{todo.status}}</td>
+    </tr>
+
+</table>
+<br>
+<!-- <a [routerLink]="['/Home']" >Home</a> -->

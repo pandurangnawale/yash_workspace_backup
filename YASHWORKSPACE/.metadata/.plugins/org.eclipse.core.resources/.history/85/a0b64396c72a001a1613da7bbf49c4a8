@@ -1,0 +1,58 @@
+package expert;
+
+public class QueueImplimentation {
+	
+	int top=-1;
+	int capacity=5;
+	int queue[]=new int[capacity];
+	int front=-1;
+	
+	boolean isEmpty() {
+		if(top==front)
+			return true;
+		return false;
+	}
+	
+	boolean isFull() {
+		if(top+1 == capacity) {
+			return true;
+		}else {			
+		return false;
+		}
+	}
+	
+	void push(int element) {
+		if(isFull())
+			System.out.println("Queue is full");
+		else {
+			queue[++top]=element;
+			System.out.println(element +" Elemenen push at "+ top);
+			
+		}
+	}
+	
+	void remove() {
+		if(isEmpty())
+			System.out.println("No element to remove, Its Empty");
+		else {
+			System.out.println(queue[++front] +" Elemenen pop "+ front);
+		}		
+	}
+
+	public static void main(String[] args) {
+		QueueImplimentation que = new QueueImplimentation();
+		que.push(1);
+		que.push(2);
+		que.push(3);
+		que.remove();
+		que.push(4);
+		que.push(5);
+		que.push(6);		
+		que.remove();
+		que.remove();
+		que.remove();
+		que.push(3);
+		que.remove();
+		que.remove();
+	}
+}

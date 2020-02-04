@@ -1,0 +1,66 @@
+package com.yash.pms.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.yash.pms.model.Project;
+import com.yash.pms.service.PmsService;
+
+@CrossOrigin(origins = "*")
+@RestController
+public class PmsController {
+	
+	@Autowired
+	PmsService pmsService;
+	
+	@PostMapping("project/projectCreation")	
+	public void addProject(@RequestBody Project project) {
+		System.out.println("ceate=============================");
+		pmsService.save(project);
+	}
+	
+	@GetMapping("project/getProject")
+	public List<Project> getProjectDetails(){
+		List<Project> projectList = new ArrayList<Project>();
+		projectList=pmsService.findAll();
+		return projectList;
+	}
+	
+	@GetMapping("project/getProjectById/{id}")
+	public Project getProjectById(@PathVariable Integer id){
+		return pmsService.findById(id).get();
+	}
+	
+	/*@PutMapping("project/{id}")
+	public Project updateProjectById(@PathVariable Integer id,@RequestBody Project project) {
+		System.out.println("update=============================");
+		
+		return pmsService.findById(id).map(pro ->{
+			pro.setProjectName(project.getProjectName());
+			pro.setProjectDesc(project.getProjectDesc());
+			pro.setProjectStartDate(project.getProjectStartDate());
+			pro.setProjectEndDate(project.getProjectEndDate());
+			return pmsService.save(pro);
+		}).orElseGet(() -> {
+			return pmsService.save(project);
+		});
+	}*/
+	
+	@DeleteMapping("project/deleteProjectById/{id}")
+	public boolean deleteProjectById(@PathVariable Integer id){
+		System.out.println("DELETE Project Id : "+ id );
+		 pmsService.deleteById(id);
+		 return true;
+	}
+
+}

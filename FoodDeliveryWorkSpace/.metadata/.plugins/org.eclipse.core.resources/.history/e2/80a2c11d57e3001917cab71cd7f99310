@@ -1,0 +1,5 @@
+package collection;
+
+static class Entry<K,V> {
+	
+}

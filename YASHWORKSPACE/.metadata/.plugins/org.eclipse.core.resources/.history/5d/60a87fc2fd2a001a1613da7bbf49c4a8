@@ -1,0 +1,21 @@
+package expert;
+
+public class CustomQueue {
+
+	
+		 int capacity=5;
+		 int queue[]=new int[capacity];
+		 int front=0;
+		 int rear=0;
+	
+	public void insert(int ele)
+	{
+		queue[rear++]=ele;
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

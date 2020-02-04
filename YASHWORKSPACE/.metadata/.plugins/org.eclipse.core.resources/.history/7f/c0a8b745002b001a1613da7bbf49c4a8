@@ -1,0 +1,24 @@
+package expert;
+class Node
+{
+	int data;
+	Node next;
+	Node(int data)
+	{
+		this.data=data;
+	}
+}
+public class LList {
+	Node head=null;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Node head=new Node(10);
+		Node first=new Node(10);
+		Node second=new Node(10);
+		Node third=new Node(10);
+		head=first;
+		first=second;
+		second=third;
+	}
+
+}

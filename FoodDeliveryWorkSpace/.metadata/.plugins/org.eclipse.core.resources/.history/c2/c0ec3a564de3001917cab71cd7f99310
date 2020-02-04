@@ -1,0 +1,29 @@
+package collection;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrentHashMapDemo {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, String> chm = new ConcurrentHashMap<>();
+		
+		chm.put(1, "A");
+		chm.put(2, "C");
+		chm.put(3, "B");
+		chm.put(4, "D");
+		chm.put(5, "E");
+		chm.put(6, "F");	
+		
+		System.out.println(chm);
+		
+		System.out.println(chm.put(1, "Z"));
+		
+		System.out.println(chm.get(1));
+
+		        
+
+	}
+
+}

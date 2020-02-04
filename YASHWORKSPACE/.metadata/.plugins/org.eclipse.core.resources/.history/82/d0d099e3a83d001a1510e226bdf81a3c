@@ -1,0 +1,21 @@
+package string;
+
+public class StringAnagram {
+
+	public static void main(String[] args) {
+		
+		String s1="abcdefg";
+		String s2="abcdefh";
+		
+		if(s1.equals(s2)) {
+			System.out.println("Annagram");
+		}
+		else if(s1.length()!=s2.length()) {
+			System.out.println("Not annagram");
+		}
+		
+		System.out.println(s1.length()==s2.length());
+
+	}
+
+}

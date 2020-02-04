@@ -1,0 +1,18 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringboottestApplication {
+	@Autowired
+	static Alian a;
+	public static void main(String[] args) {
+		
+		SpringApplication.run(SpringboottestApplication.class, args);
+		
+		a.show();
+	}
+
+}

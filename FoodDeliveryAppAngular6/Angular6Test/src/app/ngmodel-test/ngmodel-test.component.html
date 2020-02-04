@@ -1,0 +1,55 @@
+<p>
+  ngmodel-test works!
+</p>
+
+<div>
+
+Months : 
+<select (change)="changeEventFunction($event)">
+  <option *ngFor=" let i of months">{{i}}</option>
+</select>
+<br>
+<br>
+<button type="button" (click)='clickEventTest($event)'>Event Test </button>
+<br>
+<br>
+<span>{{data1}}</span>
+
+
+<!--ng-Template-->
+<br>
+<br>
+<div>
+
+  <span *ngIf="ifVar;then condition1 else condition2">condition is valid</span>
+  <ng-template #condition1>condition1 is valid</ng-template>
+  <ng-template #condition2>condition2 is valid</ng-template>
+</div>
+
+
+<!--customDirective-->
+<div>
+  <br><br>
+  <span appChangeText>Directive text </span>
+</div>
+
+
+<!-- PIPES TEST-->
+<div>
+   <br><br>
+<span> {{pipesVar | uppercase}}</span>
+<br><br>
+<span>{{todayDate |date:'d/M/y'}}}</span>
+<br><br>
+<span>WITHOUT PIPE JSON {{jsonVal}}</span>
+<br><br>
+<span>{{jsonVal | json}}</span>
+<br><br>
+<span>Percentage Pipe {{00.54565 | percent}}</span>
+<br><br>
+<span>slice ----  {{months | slice:2:6}}</span>
+</div>
+
+
+  <button (click)="routerTest()">RouterTesting</button>
+</div>

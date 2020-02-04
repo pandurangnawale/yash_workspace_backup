@@ -1,0 +1,5 @@
+package com.yash.pta.model;
+
+public class ExamCriteria {
+
+}

@@ -1,0 +1,35 @@
+package collection;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrentHashMapDemo {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, String> chm = new ConcurrentHashMap<>();
+		
+		chm.put(1, "A");
+		chm.put(2, "C");
+		chm.put(3, "B");
+		chm.put(4, "D");
+		chm.put(5, "E");
+		chm.put(6, "F");
+		
+
+		ArrayList<String> list = new ArrayList<String>(); 
+		  
+        list.add("A"); 
+        
+        //Iterator itr = list.iterator();
+        Set<Entry<Integer, String>> entrySet = chm.entrySet();
+        Iterator<Entry<Integer, String>> itr = entrySet.iterator();
+        
+
+	}
+
+}

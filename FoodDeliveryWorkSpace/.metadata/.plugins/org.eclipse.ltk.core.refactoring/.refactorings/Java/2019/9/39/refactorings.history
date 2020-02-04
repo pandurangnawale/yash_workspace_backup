@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;collection.ConurrentHashMapDemo&apos; to &apos;ConcurrentHashMapDemo&apos;&#x0D;&#x0A;- Original project: &apos;Java&apos;&#x0D;&#x0A;- Original element: &apos;collection.ConurrentHashMapDemo&apos;&#x0D;&#x0A;- Renamed element: &apos;collection.ConcurrentHashMapDemo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ConurrentHashMapDemo&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;collection{ConurrentHashMapDemo.java[ConurrentHashMapDemo" matchStrategy="1" name="ConcurrentHashMapDemo" qualified="false" references="true" similarDeclarations="false" stamp="1569576127775" textual="false" version="1.0"/>
+</session>

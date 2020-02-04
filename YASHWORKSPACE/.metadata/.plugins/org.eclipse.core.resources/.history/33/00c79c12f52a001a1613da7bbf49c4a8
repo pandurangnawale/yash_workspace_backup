@@ -1,0 +1,48 @@
+package expert;
+
+public class QueueImplimentation {
+	
+	int size=5;
+	int queue[]=new int[size];
+	int front=0;
+	int rear=0;
+	
+	boolean isEmpty() {
+		if(rear==front)
+			return true;
+		return false;
+	}
+	
+	boolean isFull() {
+		if(rear-1 == size) {
+			return true;
+		}else {			
+		return false;
+		}
+	}
+	
+	void enqueue(int element) {
+		if(isFull())
+			System.out.println("Queue is full");
+		else {
+			queue[front]=element;
+			System.out.println(element +" Elemenen inserted index"+ front);
+			rear ++;
+			
+		}
+	}
+	
+	void remove() {
+		if(isEmpty())
+			System.out.println("No element to remove, Its Empty");
+		else {
+			System.out.println(queue[front] +" Elemenen removed index "+ front);
+			front++;
+		}		
+	}
+
+	public static void main(String[] args) {
+		QueueImplimentation que = new QueueImplimentation();
+		
+	}
+}

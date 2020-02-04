@@ -1,0 +1,77 @@
+<body>
+    
+  <div class="container">
+      <!-- <br>
+      <button type="button" class="btn btn-success" (click)='getSelectData()'> GET ALL </button>
+      <br>
+      <br> 
+       -->
+       <div class="alert alert-warning">{{deleteMessage}}</div>
+      
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <!--{"id":10004,"username":"Pandu","description":"lSpring Boot","targetDate":"2019-09-06","done":false}-->
+          <th>ID</th>
+          <th>USERNAME</th>
+          <th>DESCRIPTION</th>
+          <th>TARGET DATE</th>
+          <th>STATUS</th>
+          <th>ACTION</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let selectVar of pojoArray">
+          <td>{{selectVar.id}}</td> 
+          <td>{{selectVar.username}}</td>
+          <td>{{selectVar.description}}</td>
+          <td>{{selectVar.targetDate}}</td>
+          <td>{{selectVar.done}}</td>
+          <td><button class='btn btn-success'  (click)="deleteResourse(selectVar.id)">Delete</button></td>
+          <td><button class='btn btn-primary' (click)="updateResourse(selectVar.id,selectVar.username,selectVar.description,selectVar.targetDate,selectVar.done)">Update</button></td>
+          <!-- <button type="button" class="btn btn-info btn-lg" (click)=”openModal()”>click to open</button> -->
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div id="bootstrapModel" class="modal fade" role="dialog">
+ 
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+    
+      <div class="modal-content">
+    
+        <div class="modal-header">
+    
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+          <h4 class="modal-title">Modal Header section</h4>
+    
+        </div>
+    
+   <!-- model body section -->
+    
+        <div class="modal-body">
+    
+          <p>body text in the modal.</p>
+    
+        </div>
+    
+        <div class="modal-footer">
+    
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    
+        </div>
+    
+      </div>
+    
+    </div>
+    
+   </div>
+  
+  </body>

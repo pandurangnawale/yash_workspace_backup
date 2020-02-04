@@ -1,0 +1,32 @@
+package com.yash.pta.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="exam_criteria")
+@Component
+public class ExamCriteria {
+	
+	/**
+	 * This is Criteria Id
+	 * @Id represents auto-generated primary key
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long userId;
+	
+	@NotBlank(message = "Name cannot be empty!")
+	@Size(min = 1, max = 100, message = "Question should be between 1 - 100")
+	private Integer numberOfQuestion;
+
+
+	
+}

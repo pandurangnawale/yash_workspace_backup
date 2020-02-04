@@ -1,0 +1,10 @@
+package collection;
+
+static class Entry<K,V> {
+	
+	
+	public Entry(K key, V value) {
+		
+	}
+	
+}

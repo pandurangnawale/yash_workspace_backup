@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1568094797837_0" label="FoodDelivery" name="FoodDelivery">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/FoodDelivery" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1568094865769_1" label="todoapp" name="todoapp"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1571318454852_3" label="tdddemo" name="tdddemo">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/tdddemo" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1573042759269_4" label="springboot" name="springboot"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1573196036163_5" label="springbootdemo" name="springbootdemo">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/springbootdemo" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1574256756180_6" label="pms" name="pms">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pms" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1576573264396_7" label="PracticeTestApplication" name="PracticeTestApplication"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1568096584179_2" label="Window Working Set" name="Aggregate for window 1568096584179"/>
+</workingSetManager>

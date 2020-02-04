@@ -1,0 +1,17 @@
+<div style="text-align:center">
+    <h1>Calculator</h1>  
+  
+    <br>
+    <h4> Answer : {{sum}}</h4>
+    <br>
+
+    <input type="number"  id="firstNumber"  placeholder="First Number" class="form-control" #first>
+    <br>
+    <input type="number"  id="secondNumber"  placeholder="Second Number" class="form-control" #second>
+    <br>
+    <button class="btn btn-primary" type="submit" (click) = 'add(first.value, second.value)'>+</button>
+    <button class="btn btn-success" type="submit" (click) = 'sub(first.value, second.value)'>-</button>
+    <button class="btn btn-warning" type="submit" (click) = 'mul(first.value, second.value)'>*</button>
+    <button class="btn btn-danger"  type="submit" (click) = 'dv(first.value, second.value)'>/</button>
+    
+  </div>

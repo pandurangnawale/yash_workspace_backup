@@ -1,0 +1,48 @@
+.appTitle{
+    color:#218c74;
+    background-color: #0394fc;
+    margin: 10px;
+    padding: 10px;
+    text-shadow: 2px 1px #f7f1e3;
+}
+
+body{
+    background-color: #ecf0f1;
+}
+.container{
+    margin: 10px;
+    position:relative;
+}
+
+.deleteTodoButton{
+    float: right;
+}
+li{
+    list-style: none;
+    margin: 10px;
+    color: #ecf0f1;
+    background-color: #2980b9;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 100;
+    width: 40%
+}
+
+#sideInstruction{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 40%;
+    background-color: #16a085;
+}
+
+#sideInstruction p{
+    margin:10px;
+    color:#ecf0f1;
+}
+
+
+table{
+    width:80%;
+    margin: 0 auto;
+}

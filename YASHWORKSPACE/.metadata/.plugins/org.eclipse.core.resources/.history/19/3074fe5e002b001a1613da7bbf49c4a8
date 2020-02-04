@@ -1,0 +1,35 @@
+package expert;
+class Node
+{
+	int data;
+	Node next;
+	Node(int data)
+	{
+		this.data=data;
+	}
+}
+public class LList {
+	static Node head=null;
+	public void show()
+	{
+		Node curr=head;
+		while(curr!=null)
+		{
+			System.out.println(curr.data);
+			curr=curr.next;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 head=new Node(10);
+		Node first=new Node(10);
+		Node second=new Node(10);
+		Node third=new Node(10);
+		head=first;
+		first=second;
+		second=third;
+		LList l=new LList();
+		l.show();
+	}
+
+}

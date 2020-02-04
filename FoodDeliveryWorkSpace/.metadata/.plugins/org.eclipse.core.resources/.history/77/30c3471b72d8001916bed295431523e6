@@ -1,0 +1,51 @@
+package com.yash.fooddelivery.controller;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.yash.fooddelivery.model.User;
+import com.yash.fooddelivery.service.FoodService;
+
+@RestController
+@CrossOrigin(origins="*", allowedHeaders="*" )
+public class FoodController {	
+		
+	@Autowired
+	FoodService service;
+	
+	@PostMapping("/user/login")
+	public List<Object> LoginAuth(@RequestBody String username, @RequestBody String password) {
+		//@PathVariable used when we send data in URL
+		List<Object> userAuth = new ArrayList<>(); 
+		userAuth=service.LoginAuth(username,password);
+		return userAuth;
+		
+	}
+	
+	@PostMapping("/user/UserRegisteration")
+	public User userRegister(@RequestBody User user) {
+		service.userRegister(user);
+		return user;
+	}
+	
+	@GetMapping("user/GetAllUser")
+	public List<User> getAllUser() {
+		List<User> allUser= new ArrayList<>();
+		allUser=service.getAllUser();
+		return allUser;
+	}
+	
+	@GetMapping("/user/{username}")
+	public List<User> getUserByName(@PathVariable String username){
+		return service.getUserByName(username);
+	}
+
+}

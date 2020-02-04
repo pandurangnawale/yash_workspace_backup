@@ -1,0 +1,25 @@
+# Email configuration
+spring.mail.host=mail.Yash.com
+spring.mail.port=587
+spring.mail.username=pandurang.nawale@yash.com
+spring.mail.password=kskcPz07
+
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.connectiontimeout=5000
+spring.mail.properties.mail.smtp.timeout=5000
+spring.mail.properties.mail.smtp.writetimeout=5000
+
+spring.mail.properties.mail.smtp.starttls.enable=false
+# spring.mail.properties.mail.smtp.socketFactory.class = javax.net.ssl.SSLSocketFactory
+
+# Database Configuration 
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.url=jdbc:mysql://localhost:3306/arci
+spring.datasource.initialization-mode=always
+spring.datasource.separator=^;
+spring.datasource.continue-on-error=true
+# Property Toggle error email notifications, these emails are being received by email addresses set in 'developer.to.mail', 'developer.cc.mail'
+notifications.mails.error-emails.enable:false
+server.port=8081
+server.frontend.port=3000

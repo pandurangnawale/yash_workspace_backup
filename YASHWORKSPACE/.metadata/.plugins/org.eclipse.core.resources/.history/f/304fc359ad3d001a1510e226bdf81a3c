@@ -1,0 +1,36 @@
+package string;
+
+import java.util.Arrays;
+import java.util.HashMap;
+
+public class StringAnagram {
+
+	public static void main(String[] args) {
+		
+		String s1="abcdefg";
+		String s2="agdcebf";
+		Character ch1[]=new Character[s1.length()-1]; 
+		Character ch2[]=new Character[s2.length()-1]; 
+		
+		
+		
+		for(int i =0;i<s1.length();i++) {
+			ch1[i]=s1.charAt(i);
+		}
+		for(int i =0;i<s2.length();i++) {			
+			ch2[i]=s2.charAt(i);
+		}
+		
+		Arrays.sort(ch1);
+		Arrays.sort(ch2);
+		
+		if(ch1.length!=ch2.length) {
+			System.out.println("Not Annagram");
+		}else if(ch1.equals(ch2)){
+			System.out.println("Annagram");
+		}
+			
+	}
+	
+
+}

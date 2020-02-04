@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reract Componet Demo</title>
+    </head>
+<body>
+
+<h1>Component Props Demo</h1>
+<hr>
+
+<div id="root">
+    
+
+</div>
+<script src="js/react.js" type="text/javascript"></script>
+<script src="js/react-dom.js" type="text/javascript"></script>
+<!--<script src="js/babel.min.js" type="text/javascript"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js" type="text/javascript"></script>
+
+<script type="text/babel">
+//    class GreetingComponent extends React.Component{
+//        render(){
+//            return(<span>Hi : {this.props.msg}</span>);
+//        }
+//    }
+
+   const GreetingComponent=(props)=>{
+      
+           return(<span>Hi : {props.msg}</span>);
+      
+   }
+
+    ReactDOM.render(<GreetingComponent msg="PANDURANG NAWALE"/>,document.getElementById("root"));
+</script>
+</body>
+</html>

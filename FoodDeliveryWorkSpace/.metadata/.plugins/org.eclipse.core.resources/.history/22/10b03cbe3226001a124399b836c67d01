@@ -1,0 +1,14 @@
+package com.yash.pta.service;
+import java.io.IOException;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.yash.pta.model.Questions;
+
+public interface QuestionService {
+public List<Questions> getAllQuestions();
+Questions addQuestion(int id, Questions ques);
+List<Questions> getQuestionsById(int techID);
+public void saveExelData(MultipartFile file)throws IOException;
+}

@@ -1,0 +1,54 @@
+package com.yash.arci.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.yash.arci.model.RoleName;
+import com.yash.arci.model.Skills;
+import com.yash.arci.model.UpdateUserProfileDto;
+import com.yash.arci.model.User;
+
+/**
+ * Created by Yogesh Aware
+ */
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    
+	User findByEmail(String email);
+
+    Optional<User> findByUsernameOrEmail(String username, String email);
+
+   // List<User> findByIdIn(List<Integer> userIds);
+    
+    Optional<User> findByUsername(String username);
+
+    Boolean existsByUsername(String username);
+
+    Boolean existsByEmail(String email);
+    
+    @Query("select user from User user where lower(user.firstName) like (concat('%',:searchText,'%'))"+
+    	    "or lower (user.lastName) like (concat('%',:searchText,'%'))" +
+    	    "or lower (user.email) like (concat('%',:searchText,'%'))" +
+    	    "or lower (user.userId) like (concat('%',:searchText,'%'))")
+    	    List<User> searchUser(@Param("searchText") String searchText);
+    
+    List<User> findUserByRolesName(RoleName roleName);
+	
+    @Modifying
+    @Query("UPDATE User SET skills.id=:skillId where userId=:userId")
+    void updateUser(int skillId,long userId);
+
+}
+
+
+
+
+
+
+

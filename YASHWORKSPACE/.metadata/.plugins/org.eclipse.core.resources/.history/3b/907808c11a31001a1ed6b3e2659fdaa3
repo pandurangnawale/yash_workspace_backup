@@ -1,0 +1,32 @@
+package utility;
+
+public class ComparableTest implements Comparable<ComparableTest>{
+	
+	int age;
+	int salary;
+	String name;
+	
+	public ComparableTest(int age, int salary,String name) {
+		this.age=age;
+		this.salary=salary;
+		this.name=name;
+	}
+
+	public static void main(String[] args) {
+		
+		ComparableTest obj = new ComparableTest(28, 50000, "Jinal");
+		ComparableTest obj1 = new ComparableTest(29, 50000, "Jinal");
+		
+		System.out.println(obj.compareTo(obj));
+		
+	}
+
+	@Override
+	public int compareTo(ComparableTest o) {
+		if(this.age==o.age) {
+			return 0;
+		}
+		return 1;
+	}
+
+}
